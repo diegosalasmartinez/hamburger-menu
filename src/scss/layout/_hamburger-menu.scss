@@ -1,0 +1,97 @@
+body{
+
+    overflow-x: hidden;
+}
+
+#menu-hamburger{
+    display: block;
+    position: relative;
+    top: 5rem;
+    left: 5rem;
+    z-index: 1;
+
+    input{
+        display: block;
+        position: absolute;
+        width: 4rem;
+        height: 3.2rem;
+        top: -.5rem;
+        left: -.4rem;
+        cursor: pointer;
+        opacity: 0; 
+        z-index: 2; 
+    }
+
+    a{
+        text-decoration: none;
+        color: #232323;
+        transition: color 0.3s ease;
+ 
+        &:hover{
+            color: tomato;
+        }
+    }
+
+    span{
+        display: block;
+        position: relative;
+        width: 3.3rem;
+        height: .4rem;
+        margin-bottom: .5rem;
+        background: #cdcdcd;
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    opacity 0.55s ease;
+
+        #hamb-stripe-1{
+            transform-origin: 0% 0%;
+        }
+
+        #hamb-stripe-3{
+            transform-origin: 0% 100%;
+        }
+    }
+
+    input:checked ~ span{
+        transform: rotate(45deg) translate(2px, 1px);
+        background: #232323;
+        opacity: 1;
+
+        &#hamb-stripe-2{
+            transform: rotate(0deg) scale(0.2, 0.2);
+            opacity: 0;
+        }
+
+        &#hamb-stripe-3{
+            transform: rotate(-45deg) translate(-2px, 1px) ;
+        }
+    }
+}
+
+#list-hamburger{
+    position: absolute;
+    // height: calc(100vh - 12.1rem);
+    width: 30rem;
+    margin: -7.5rem 0 0 -5rem;
+    padding: 5rem;
+    padding-top: 9.5rem;
+
+    background: $blanco;
+    list-style-type: none;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+    li{
+        padding: 10px 0;
+        font-size: 22px;
+    }
+}
+
+#menu-hamburger input:checked ~ ul{
+    transform: none;
+}
